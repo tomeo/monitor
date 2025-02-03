@@ -1,11 +1,11 @@
-<div class="grid">
+<div class="grid grid-cols-3 gap-2 md:gap-4">
     <.live_component
-        class="max-w-xl bg-blue-600 text-white p-4 rounded shadow-sm text-xs mb-4 font-germania"
+        class="col-span-3 md:col-span-2 bg-blue-600 text-white p-4 rounded shadow-sm text-xs font-germania"
         module={OktoberfestCountdownComponent} id="countdown" />
     <.live_component
-        class="max-w-xl bg-orange-300 text-white p-4 rounded shadow-sm text-xs mb-4"
-        module={LunchComponent} id="countdown" />
-    <%!-- <.live_component
-        class="bg-pink-500 text-white p-4 rounded shadow-sm text-xs mb-4 cursor-pointer"
-        module={DadJokeComponent} id="dad_jokes" /> --%>
+        class="col-span-3 md:col-span-1 bg-pink-500 text-white p-4 rounded shadow-sm text-xs cursor-pointer"
+        module={DadJokeComponent} id="dad_jokes" />
+    <.live_component
+        class="col-span-3 md:col-span-2 bg-orange-300 text-black p-4 rounded shadow-sm text-xs"
+        module={LunchComponent} id="lunch" />
 </div>

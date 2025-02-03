@@ -2,14 +2,14 @@ defmodule LunchComponent do
   use MonitorWeb, :live_component
   require Logger
 
-  def update(_assigns, socket) do
+  def update(assigns, socket) do
     case fetch_lunch_data() do
       {:ok, lunch_places} ->
-        {:ok, assign(socket, lunch_places: lunch_places)}
+        {:ok, assign(socket, lunch_places: lunch_places, class: assigns.class)}
 
       {:error, reason} ->
         Logger.error("Failed to fetch lunch data: #{reason}")
-        {:ok, assign(socket, lunch_places: [])}
+        {:ok, assign(socket, lunch_places: [], class: assigns.class)}
     end
   end
 
@@ -33,9 +33,8 @@ defmodule LunchComponent do
 
   def render(assigns) do
     ~H"""
-    <div class="p-4 bg-orange-400 rounded-lg shadow-md">
-      <h2 class="text-base font-bold mb-2">Lunch Ramlösa</h2>
-
+    <div class={@class}>
+      <h2 class="text-base text-white font-bold mb-2">Lunch Ramlösa</h2>
       <%= for place <- @lunch_places do %>
         <div class="mb-2 p-4 bg-white rounded-lg shadow">
           <h3 class="text-sm font-semibold"><%= place["name"] %></h3>

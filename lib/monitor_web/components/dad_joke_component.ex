@@ -30,7 +30,7 @@ defmodule DadJokeComponent do
       phx-target={@myself}
       >
       <div class="flex gap-2 items-center">
-        <div><%= @joke %></div>
+        <div class="text-base font-semibold"><%= @joke %></div>
       </div>
     </div>
     """
