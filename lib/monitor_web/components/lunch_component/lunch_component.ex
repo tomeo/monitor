@@ -34,7 +34,10 @@ defmodule LunchComponent do
   def render(assigns) do
     ~H"""
     <div class={@class}>
-      <h2 class="text-base text-white font-bold mb-2">Lunch Ramlösa</h2>
+      <h2 class="text-base font-semibold mb-2 flex gap-4 items-center">
+        <div class="text-4xl md:test-6xl">🥗</div>
+        <div>Lunch Ramlösa</div>
+      </h2>
       <%= for place <- @lunch_places do %>
         <div class="mb-2 p-4 bg-white rounded-lg shadow">
           <h3 class="text-sm font-semibold"><%= place["name"] %></h3>
