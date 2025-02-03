@@ -15,7 +15,7 @@ defmodule OktoberfestCountdownComponent do
           <div class="text-4xl md:test-6xl">🍺</div>
           <div class="text-xs md:text-base">Oktoberfest</div>
         </div>
-        <div class="grid grid-cols-4 gap-x-6 md:gap-x-10 gap-y-1 text-4xl md:text-6xl">
+        <div class="grid grid-cols-4 gap-x-3 md:gap-x-10 gap-y-1 text-4xl md:text-6xl">
           <div id="oktoberfest_countdown_days" class="flex flex-col justify-end h-full"></div>
           <div id="oktoberfest_countdown_hours" class="flex flex-col justify-end h-full"></div>
           <div id="oktoberfest_countdown_minutes" class="flex flex-col justify-end h-full"></div>
