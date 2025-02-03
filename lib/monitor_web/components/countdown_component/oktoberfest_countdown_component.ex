@@ -9,16 +9,22 @@ defmodule OktoberfestCountdownComponent do
   def render(assigns) do
     ~H"""
     <div class={@class}>
-      <p class="text-xl">Zeit bis zum Oktoberfest:</p>
-      <div class="grid grid-cols-4 gap-1 text-6xl">
-        <div id="oktoberfest_countdown_days"></div>
-        <div id="oktoberfest_countdown_hours"></div>
-        <div id="oktoberfest_countdown_minutes"></div>
-        <div id="oktoberfest_countdown_seconds"></div>
-        <div class="text-xl">Dôg</div>
-        <div class="text-xl">Stund'n</div>
-        <div class="text-xl">Minut'n</div>
-        <div class="text-xl">Sekond'n</div>
+      <div class="flex justify-between">
+        <div class="flex flex-col gap-2 items-center">
+          <div class="text-xl">Zeit bis zum</div>
+          <div class="text-7xl">🍺</div>
+          <div class="text-xl">Oktoberfest</div>
+        </div>
+        <div class="grid grid-cols-4 gap-x-10 gap-y-1 text-6xl">
+          <div id="oktoberfest_countdown_days" class="flex flex-col justify-end h-full"></div>
+          <div id="oktoberfest_countdown_hours" class="flex flex-col justify-end h-full"></div>
+          <div id="oktoberfest_countdown_minutes" class="flex flex-col justify-end h-full"></div>
+          <div id="oktoberfest_countdown_seconds" class="flex flex-col justify-end h-full"></div>
+          <div class="text-xl">Dôg</div>
+          <div class="text-xl">Stund'n</div>
+          <div class="text-xl">Minut'n</div>
+          <div class="text-xl">Sekond'n</div>
+        </div>
       </div>
 
       <script>
