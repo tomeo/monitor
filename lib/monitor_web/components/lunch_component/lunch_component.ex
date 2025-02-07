@@ -3,19 +3,32 @@ defmodule LunchComponent do
   require Logger
 
   def update(assigns, socket) do
-    case fetch_lunch_data() do
+    url = assigns.url
+
+    case fetch_lunch_data(url) do
       {:ok, lunch_places} ->
-        {:ok, assign(socket, lunch_places: lunch_places, class: assigns.class)}
+        {:ok, assign(socket, lunch_places: lunch_places, class: assigns.class, area: assigns.area)}
 
       {:error, reason} ->
         Logger.error("Failed to fetch lunch data: #{reason}")
-        {:ok, assign(socket, lunch_places: [], class: assigns.class)}
+        {:ok, assign(socket, lunch_places: [], class: assigns.class, area: assigns.area, url: url)}
     end
   end
 
-  defp fetch_lunch_data do
-    url = "https://lunch-api-lively-forest-2534.fly.dev/helsingborg/ramlosa"
+  def handle_event("reload_lunch", _params, socket) do
+    url = socket.assigns.url
 
+    case fetch_lunch_data(url) do
+      {:ok, lunch_places} ->
+        {:noreply, assign(socket, lunch_places: lunch_places)}
+
+      {:error, reason} ->
+        Logger.error("Failed to fetch lunch data: #{reason}")
+        {:noreply, assign(socket, lunch_places: [])}
+    end
+  end
+
+  defp fetch_lunch_data(url) do
     case HTTPoison.get(url) do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
         case Jason.decode(body) do
@@ -36,7 +49,10 @@ defmodule LunchComponent do
     <div class={@class}>
       <h2 class="text-base font-semibold mb-2 flex gap-4 items-center">
         <div class="text-4xl md:test-6xl">🥗</div>
-        <div>Lunch Ramlösa</div>
+        <div>Lunch {@area}</div>
+        <button phx-click="reload_lunch" phx-target={@myself} class="ml-auto bg-blue-500 text-white px-3 py-1 rounded shadow">
+          🔄 Reload
+        </button>
       </h2>
       <%= for place <- @lunch_places do %>
         <div class="mb-2 p-4 bg-white rounded-lg shadow">

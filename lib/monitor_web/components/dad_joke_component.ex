@@ -28,10 +28,10 @@ defmodule DadJokeComponent do
       class={@class}
       phx-click="new_joke"
       phx-target={@myself}
-      >
-      <div class="flex gap-4 items-center content-center justify-center">
-        <div class="text-4xl md:test-6xl">👨‍🍼</div>
-        <div class="text-base font-semibold"><%= @joke %></div>
+    >
+      <div class="flex gap-4 items-center justify-center h-full w-full">
+        <div class="text-4xl md:text-6xl">👨‍🍼</div>
+        <div class="text-2xl font-semibold"><%= @joke %></div>
       </div>
     </div>
     """

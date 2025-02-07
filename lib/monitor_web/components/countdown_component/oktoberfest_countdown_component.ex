@@ -9,11 +9,11 @@ defmodule OktoberfestCountdownComponent do
   def render(assigns) do
     ~H"""
     <div class={@class}>
-      <div class="flex justify-between gap-1">
-        <div class="flex flex-col gap-2 items-center content-center">
-          <div class="text-xs md:text-base">Zeit bis zum</div>
-          <div class="text-4xl md:test-6xl">🍺</div>
-          <div class="text-xs md:text-base">Oktoberfest</div>
+      <div class="flex justify-between gap-1 h-full md:pl-8 md:pr-8">
+        <div class="flex flex-col md:flex-row gap-2 items-center content-center">
+          <div class="text-xs md:text-4xl">Zeit bis zum</div>
+          <div class="text-4xl md:test-8xl">🍺</div>
+          <div class="text-xs md:text-4xl">Oktoberfest</div>
         </div>
         <div class="grid grid-cols-4 gap-x-3 md:gap-x-10 gap-y-1 text-3xl md:text-6xl">
           <div id="oktoberfest_countdown_days" class="flex flex-col justify-end h-full"></div>

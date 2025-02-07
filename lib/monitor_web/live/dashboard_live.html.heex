@@ -1,11 +1,14 @@
 <div class="grid grid-cols-3 gap-2 md:gap-4">
     <.live_component
-        class="col-span-3 md:col-span-2 bg-blue-600 text-white p-4 rounded shadow-sm text-xs font-germania"
+        class="col-span-3 md:col-span-2 bg-blue-600 text-white p-4 rounded shadow-sm text-xs font-germania h-full"
         module={OktoberfestCountdownComponent} id="countdown" />
     <.live_component
-        class="col-span-3 md:col-span-1 bg-pink-500 text-white p-4 rounded shadow-sm text-xs cursor-pointer"
+        class="col-span-3 md:col-span-1 bg-pink-500 text-white p-4 rounded shadow-sm text-xs cursor-pointer h-full"
         module={DadJokeComponent} id="dad_jokes" />
+    <%!-- <.live_component
+        class="col-span-3 md:col-span-1 row-span-3 bg-orange-300 text-black p-4 rounded shadow-sm text-xs"
+        module={LunchComponent} id="lunch_ramlosa" url="https://lunch-api-lively-forest-2534.fly.dev/helsingborg/ramlosa" area="Ramlösa" /> --%>
     <.live_component
-        class="col-span-3 md:col-span-2 bg-orange-300 text-black p-4 rounded shadow-sm text-xs"
-        module={LunchComponent} id="lunch" />
+        class="col-span-3 md:col-span-1 row-span-3 bg-orange-300 text-black p-4 rounded shadow-sm text-xs"
+        module={LunchComponent} id="lunch_oceanhamnen" url="https://lunch-api-lively-forest-2534.fly.dev/helsingborg/oceanhamnen" area="Oceanhamnen" />
 </div>
